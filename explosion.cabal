@@ -1,0 +1,38 @@
+name:                       explosion
+version:                    0.1.0.0
+synopsis:                   test of space explosions when folding pipes and parsers
+author:                     Reuben Thomas
+maintainer:                 reuben.thomas@me.com
+category:                   Testing
+build-type:                 Simple
+cabal-version:              >=1.10
+
+library
+    hs-source-dirs:         src
+    ghc-options:            -rtsopts
+    exposed-modules:        Explosion
+    default-language:       Haskell2010
+    build-depends:          base >=4.6 && <4.7,
+                            pipes-parse,
+                            pipes-bytestring,
+                            pipes-aeson,
+                            lens-family-core,
+                            bytestring
+
+executable test0:
+    hs-source-dirs:         test0
+    main-is:                Main.hs
+    ghc-options:            -rtsopts
+    default-language:       Haskell2010
+    build-depends:          base >=4.6 && <4.7,
+                            pipes,
+                            explosion
+
+executable test1:
+    hs-source-dirs:         test1
+    main-is:                Main.hs
+    ghc-options:            -rtsopts
+    default-language:       Haskell2010
+    build-depends:          base >=4.6 && <4.7,
+                            pipes-parse,
+                            explosion
