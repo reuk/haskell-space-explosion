@@ -19,7 +19,7 @@ library
                             lens-family-core,
                             bytestring
 
-executable test0:
+executable test0
     hs-source-dirs:         test0
     main-is:                Main.hs
     ghc-options:            -rtsopts
@@ -28,7 +28,7 @@ executable test0:
                             pipes,
                             explosion
 
-executable test1:
+executable test1
     hs-source-dirs:         test1
     main-is:                Main.hs
     ghc-options:            -rtsopts
