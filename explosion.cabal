@@ -26,6 +26,10 @@ executable test0
     default-language:       Haskell2010
     build-depends:          base >=4.6 && <4.7,
                             pipes,
+                            pipes-parse,
+                            pipes-aeson ==0.4.*,
+                            pipes-bytestring,
+                            lens-family-core,
                             explosion
 
 executable test1
@@ -36,3 +40,19 @@ executable test1
     build-depends:          base >=4.6 && <4.7,
                             pipes-parse,
                             explosion
+
+executable test2
+    hs-source-dirs:         test2
+    main-is:                Main.hs
+    ghc-options:            -rtsopts
+    default-language:       Haskell2010
+    build-depends:          base >=4.6 && <4.7,
+                            pipes,
+                            pipes-parse,
+                            pipes-aeson ==0.4.*,
+                            pipes-bytestring,
+                            lens-family-core,
+                            explosion,
+                            aeson ==0.7.*,
+                            array
+    

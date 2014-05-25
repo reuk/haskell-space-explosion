@@ -10,7 +10,7 @@ import Lens.Family (view)
 import Lens.Family.State.Strict (zoom)
 
 produceString :: Producer ByteString IO ()
-produceString = fromLazy $ pack $ intercalate " " $ map show [1..1000000]
+produceString = fromLazy $ pack $ intercalate " " $ map show [1..10000000]
 
 produceInts :: Producer Int IO (Either (DecodingError, Producer ByteString IO ()) ())
 produceInts = view decoded produceString
