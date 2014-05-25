@@ -9,8 +9,11 @@ import Data.ByteString.Lazy.Char8 (pack)
 import Lens.Family (view)
 import Lens.Family.State.Strict (zoom)
 
+intList :: [Int]
+intList = [1..1000000]
+
 produceString :: Producer ByteString IO ()
-produceString = fromLazy $ intercalate (pack " ") $ map (pack . show) [1..1000000]
+produceString = fromLazy $ intercalate (pack " ") $ map (pack . show) intList
 
 produceInts :: Producer Int IO (Either (DecodingError, Producer ByteString IO ()) ())
 produceInts = view decoded produceString

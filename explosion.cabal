@@ -52,7 +52,6 @@ executable test2
                             pipes-aeson ==0.4.*,
                             pipes-bytestring,
                             lens-family-core,
-                            explosion,
                             aeson ==0.7.*,
                             array
     
