@@ -17,6 +17,8 @@ import Data.Array.IO
 import Control.Applicative
 import Data.Foldable
 
+--  data and instance declarations - all fairly standard stuff
+
 data RayTrace = RayTrace (C3 Double) [Impulse]
     deriving (Eq, Show, Generic)
 
@@ -56,6 +58,8 @@ instance (Num a) => Num (C3 a) where
     abs = fmap abs
     signum = fmap signum
     fromInteger = pure . fromInteger
+    
+--  functions
 
 lastSampleTimeForFile :: String -> IO Double
 lastSampleTimeForFile f = 
@@ -64,6 +68,8 @@ lastSampleTimeForFile f =
 
 maxSample :: Double -> RayTrace -> Double
 maxSample = flip $ max . time . last . impulses
+
+--  the following four functions eat a lot of memory and I don't know why
 
 channelForFile :: FilePath -> Int -> Double -> IO (IOArray Int (C3 Double))
 channelForFile f l sr = withFile f ReadMode $ \hIn -> do
