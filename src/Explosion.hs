@@ -1,16 +1,16 @@
 module Explosion where
 
+import Data.ByteString.Lazy (intercalate)
 import Pipes.Parse (foldAll, Parser, Producer)
 import Pipes.ByteString (ByteString, fromLazy)
 import Pipes.Aeson (DecodingError)
 import Pipes.Aeson.Unchecked (decoded)
-import Data.List (intercalate)
 import Data.ByteString.Lazy.Char8 (pack)
 import Lens.Family (view)
 import Lens.Family.State.Strict (zoom)
 
 produceString :: Producer ByteString IO ()
-produceString = fromLazy $ pack $ intercalate " " $ map show [1..10000000]
+produceString = fromLazy $ intercalate (pack " ") $ map (pack . show) [1..1000000]
 
 produceInts :: Producer Int IO (Either (DecodingError, Producer ByteString IO ()) ())
 produceInts = view decoded produceString
